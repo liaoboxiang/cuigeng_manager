@@ -11,9 +11,11 @@ process.on('uncaughtException', function (err) {
     console.error('Caught exception: ' + err.stack);
 });
 
-// 上传配置
+// 涓婁紶閰嶇疆
 app.get('/upload_config', function (req, res) {
-    // 保存到数据库
+    // 淇濆瓨鍒版暟鎹簱
+    var bookList = req.query.data;
+    console.log(bookList[0].name, bookList[0].datas);
     var result = {msg:"success"};
     res.send(result);
 });
