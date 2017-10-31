@@ -7,6 +7,8 @@ var app = express();
 var config = require('./config.json');
 var listenPort = config.port;
 
+var SheetHandler = require('./sheetHandler.js');
+
 process.on('uncaughtException', function (err) {
     console.error('Caught exception: ' + err.stack);
 });
@@ -15,7 +17,10 @@ process.on('uncaughtException', function (err) {
 app.get('/upload_config', function (req, res) {
     // 保存到数据库
     var bookList = req.query.data;
-    console.log(bookList[0].name, bookList[0].datas);
+    for(var i in bookList){
+        var sheetData = bookList[i];
+        new SheetHandler(sheetData);
+    }
     var result = {msg:"success"};
     res.send(result);
 });
