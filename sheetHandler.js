@@ -41,10 +41,12 @@ function fixLineData(data){
     for(var i in lines){
         if(i > 0){
             var line = lines[i];
+            var fullDataLine = {};
             fieldList.forEach(function(field){
                 if(line[field] == undefined){
-                    line[field] = lastLineData[field];
+                    fullDataLine[field] = lastLineData[field];
                 }else{
+                    fullDataLine[field] = line[field];
                     lastLineData[field] = line[field];
                 }
             })
