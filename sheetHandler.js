@@ -53,5 +53,5 @@ function fixLineData(data){
         };
         fullDataLines.push(fullDataLine);
     }
-    console.log(lines);
+    console.log(fullDataLines);
 }
